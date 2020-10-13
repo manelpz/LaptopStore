@@ -8,15 +8,17 @@ const laptopData = JSON.parse(json);
 const server = http.createServer((req, res) => {
 
     const pathName = url.parse(req.url, true).pathname;
+    const id = url.parse(req.url, true).query.id;
    
     if(pathName === '/products' || pathName === '/'){
         res.writeHead(200, {'Content-type': 'text/html'});
         res.end('This is the products');
     }
     
-    else if (pathName === '/laptop'){
+    else if (pathName === '/laptop' && id < laptopData.length ){
         res.writeHead(200, {'Content-type': 'text/html'});
-        res.end('This is the laptop');
+        res.end(`This is the laptop ${id}`);
+
     }
     
     else{
