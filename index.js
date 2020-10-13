@@ -20,14 +20,16 @@ const server = http.createServer((req, res) => {
         
         fs.readFile(`${__dirname}/templates/template-laptop.html`,'utf-8', (err, data)=>{
             const laptop = laptopData[id];
-            let output = data.replace('${%PRODUCTNAME%}', laptop.productName);
-            let output = output.replace('${%IMAGE%}', laptop.image);
-            let output = output.replace('${%PRICE%}', laptop.price);
-            let output = output.replace('${%SCREEN%}', laptop.screen);
-            let output = output.replace('${%CPU%}', laptop.cpu);
-            let output = output.replace('${%STORAGE%}', laptop.storage);
-            let output = output.replace('${%RAM%}', laptop.ram);
-            let output = output.replace('${%DESCRIPTION%}', laptop.description);
+            let output = data.replace(/{%PRODUCTNAME%}/g, laptop.productName);
+             output = output.replace(/{%IMAGE%}/g, laptop.image);
+             output = output.replace(/{%PRICE%}/g, laptop.price);
+             output = output.replace(/{%SCREEN%}/g, laptop.screen);
+             output = output.replace(/{%CPU%}/g, laptop.cpu);
+             output = output.replace(/{%STORAGE%}/g, laptop.storage);
+             output = output.replace(/{%RAM%}/g, laptop.ram);
+             output = output.replace(/{%DESCRIPTION%}/g, laptop.description);
+
+            res.end(output);
         });
 
     }
@@ -37,8 +39,8 @@ const server = http.createServer((req, res) => {
         res.end('URL was no found');
     }
 
-   res.writeHead(200, {'Content-type':'text/html'});
-   res.end('this is the response!');
+  // res.writeHead(200, {'Content-type':'text/html'});
+  // res.end('this is the response!');
 });
 
 server.listen(1337, '127.0.0.1', ()=>{
