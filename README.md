@@ -1,4 +1,6 @@
 # LaptopStore
  
-![Screen Shot 2020-10-14 at 22 51 22](https://user-images.githubusercontent.com/2387874/96075304-5f202400-0e70-11eb-8b31-376b182714db.png)
-![Screen Shot 2020-10-14 at 22 50 49](https://user-images.githubusercontent.com/2387874/96075309-5fb8ba80-0e70-11eb-8c1b-12cc0bf4122e.png)
+
+![Screen Shot 2020-10-14 at 22 56 49](https://user-images.githubusercontent.com/2387874/96075453-a6a6b000-0e70-11eb-96fb-bc638b8fdad1.png)
+
+![Screen Shot 2020-10-14 at 22 57 07](https://user-images.githubusercontent.com/2387874/96075446-a3abbf80-0e70-11eb-9fe8-add8a3ecc381.png)
