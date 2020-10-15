@@ -12,8 +12,18 @@ const server = http.createServer((req, res) => {
    
     //PRODUCT OVERVIEW
     if(pathName === '/products' || pathName === '/'){
+        
         res.writeHead(200, {'Content-type': 'text/html'});
-        res.end('This is the products');
+        
+    
+        fs.readFile(`${__dirname}/templates/template-overview.html`,'utf-8', (err, data)=>{
+            fs.readFile(`${__dirname}/templates/template-overview.html`,'utf-8', (err, data)=>{
+                const cardsOutput = laptopData.map(el => replaceTemplate(data, el));
+                console.log(cardsOutput);
+
+                res.end(data);
+            });
+        });
     }
     
     //LAPTOP DETAIL
@@ -26,7 +36,6 @@ const server = http.createServer((req, res) => {
 
             res.end(output);
         });
-
     }
     
     //NOT FOUND
@@ -34,9 +43,6 @@ const server = http.createServer((req, res) => {
         res.writeHead(404, {'Content-type': 'text/html'});
         res.end('URL was no found');
     }
-
-  // res.writeHead(200, {'Content-type':'text/html'});
-  // res.end('this is the response!');
 });
 
 server.listen(1337, '127.0.0.1', ()=>{
